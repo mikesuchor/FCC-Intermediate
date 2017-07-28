@@ -8,27 +8,34 @@ Input strings are guaranteed to be English words in all lowercase.
 */
 
 function translatePigLatin(str) {
-    var i = 0;
-    var firstConsonant = "";
+  
+  // Empty string to hold the beginning consonants
+  var firstLetters = [];
 
-    // Split the word into an array
-    str = str.split('');
-    
-    // If the word begins with a vowel, add "way" to the end
-    if(str[0] == "a" || str[0] == "e" || str[0] == "i" || str[0] == "o" || str[0] == "u") {
-        str.push("way");
+  // Regular expressions for all vowels and all consonants
+  var vowels = /[aeiou]/gi;
+  var consonants = /[^aeiou]/gi;
+  
+  str = str.split('');
+
+  /* If the first letter is a vowel, join the letters in the array, add the beginning consonants and 'way' to the end
+  to get the Pig Latin word. */
+  if (str[0].match(vowels)) {
+    return (str.join('') + firstLetters + 'way');
+  }
+  
+  /* Else if the first latter is a consonant, check if the first letter is a consonant and if it is, slice the first letter
+  off and add it to the firstLetters array. When the first letter is a vowel, join the letters in the array, add the
+  beginning consonants and 'ay' to the end to get the Pig Latin word. */ 
+  else {
+    for (var i = 0; i < str.length; i++) {
+      while(str[i].match(consonants)) {
+        firstLetters += str.slice(0,1);
+        str = str.slice(1, str.length);
+      }
+      return (str.join('') + firstLetters + 'ay');
     }
-    // Otherwise if the word begins with a consonant, move it to the end and add "ay"
-    else {
-        while(str[i] !== "a" || str[i] !== "e" || str[i] !== "i" || str[i] !== "o" || str[i] !== "u") {
-            firstConsonant += str[0];
-            str.shift(i);
-            i++;
-        }
-        str.push(firstConsonant, "ay");
-    }
-    // Rejoin the array into a word
-    return(str.join(''));
+  }
 }
 
 console.log(translatePigLatin("consonant"));
