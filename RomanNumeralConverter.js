@@ -6,15 +6,24 @@ All roman numerals answers should be provided in upper-case.
 */
 
 function convertToRoman(num) {
-
-    num = num.toString().split('');
-
-    for (var i = 0; i < num.length; i++) {
-        console.log(num.length);
-        for (var j = 0; j < num.length[]; j++) {
-            
-        }
-    }
+ 
+ // Two arrays for holding the Roman Numeral letter and number values
+ var letters = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+ var numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+ 
+ // Empty string to hold the Roman Numeral value
+ var roman = '';
+ 
+ /* Loop through the numbers array and compare the num value to the number in the array.
+    If the num value is smaller than or equal to the number in the array, subtract that
+    number from num and add the corresponding letters to the roman string */
+ for (var i = 0; i < numbers.length; i++) {
+   while(numbers[i] <= num) {
+     roman += letters[i];
+     num -= numbers[i];
+   }
+ }
+ return roman;
 }
 
-convertToRoman(36);
+console.log(convertToRoman(42));
