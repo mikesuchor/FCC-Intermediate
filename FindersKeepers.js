@@ -11,4 +11,4 @@ function findElement(arr, func) {
   return num[0];
 }
 
-findElement([1, 2, 3, 4], function(num){ return num % 2 === 0; });
+console.log(findElement([1, 2, 3, 4], function(num){ return num % 2 === 0; }));
