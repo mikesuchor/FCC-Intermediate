@@ -10,7 +10,7 @@ function dropElements(arr, func) {
   // Store the length of the array passed to the function as the length of arr.length changes after every shift in the for loop
   var startingLength = arr.length;
 
-  // Loops through the length of the array, starting from the front, if false then shift the element off the array
+  // Loops through the length of the array, starting from the front, and if false then shift the element off the array
   for (var i = 0; i < startingLength; i++) {
     if (func(arr[0]) !== true) {
       arr.shift();
