@@ -4,18 +4,19 @@ For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { f
 
 function whatIsInAName(collection, source) {
   
-    var arr = [];
-    var sourcekeys = Object.keys(source);
-    var sourcevalues = Object.values(source);
-    
-    for (var i = 0; i < collection.length; i++) {
-      for (var j = 0; j < sourcekeys.length; j++) {
-        if ((j+1 == sourcekeys.length) && collection[i][sourcekeys[j]] == sourcevalues[j]) {
-          arr.push(collection[i]);
-        }
+  // Arrays to store the final array, the source keys, and the source values
+  var finalarr = [];
+  var sourcekeys = Object.keys(source);
+  var sourcevalues = Object.values(source);
+  
+  for (var i = 0; i < collection.length; i++) {
+    for (var j = 0; j < sourcekeys.length; j++) {
+      if ((j+1 == sourcekeys.length) && collection[i][sourcekeys[j]] == sourcevalues[j]) {
+        finalarr.push(collection[i]);
       }
     }
-    return arr;
   }
+  return finalarr;
+}
   
-  console.log(whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 }));  
+console.log(whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 }));  
