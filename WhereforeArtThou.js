@@ -9,10 +9,13 @@ function whatIsInAName(collection, source) {
   var sourcekeys = Object.keys(source);
   var sourcevalues = Object.values(source);
   
+  // Loops through the collection and checks if each key's value matches, then if it's the last item of the array, push the collection element to the final array
   for (var i = 0; i < collection.length; i++) {
     for (var j = 0; j < sourcekeys.length; j++) {
-      if ((j+1 == sourcekeys.length) && collection[i][sourcekeys[j]] == sourcevalues[j]) {
-        finalarr.push(collection[i]);
+      if (collection[i][sourcekeys[j]] == sourcevalues[j]) {
+        if (j+1 == sourcekeys.length) {
+          finalarr.push(collection[i]);
+        }
       }
     }
   }
