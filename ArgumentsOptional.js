@@ -43,4 +43,4 @@ function addTogether() {
   return false;
 }
 
-addTogether(2)(3);
+console.log(addTogether(2)(3));
