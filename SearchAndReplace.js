@@ -16,9 +16,9 @@ function myReplace(str, before, after) {
 
     // Loops through the array
     for (var i = 0; i < str.length; i++) {
-        // Ignoring case, if the word in the array matches the first argument...
+        // Ignoring case, if the word in the array matches the first argument
         if (str[i].toUpperCase() === before.toUpperCase()) {
-            // And if the first letter of the first argument is lowercase...
+            // And if the first letter of the first argument is lowercase
             if (before[0] === before[0].toLowerCase()) {
                 // Replace the word in the array with the second argument with the first letter being lowercase
                 str[i] = after.charAt(0).toLowerCase() + after.slice(1);
